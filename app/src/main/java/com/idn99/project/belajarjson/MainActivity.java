@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tv1,tv2,tv3;
     private ListView lv;
+    private Person person;
     private ArrayList<Alamat> alamats = new ArrayList<>();
 
     @Override
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         generalisasiJSON();
 
-        AddressAdapter adapter = new AddressAdapter(this,alamats);
+        AddressAdapter adapter = new AddressAdapter(this,person.getAlamats());
         lv.setAdapter(adapter);
 
     }
@@ -48,12 +49,6 @@ public class MainActivity extends AppCompatActivity {
             int age = jsonPerson.getInt("age");
             String gender = jsonPerson.getString("gender");
 
-            Person person = new Person(nama,age,gender);
-
-            tv1.setText("Nama   : "+person.getNamePerson());
-            tv2.setText("Umur   : "+String.valueOf(person.getAgePerson()));
-            tv3.setText("Gender : "+person.getGenderPerson());
-
             JSONArray jsonArray = jsonPerson.getJSONArray("address");
             for (int j=0;j<jsonArray.length();j++){
                 JSONObject jsonAddress = jsonArray.getJSONObject(j);
@@ -63,7 +58,14 @@ public class MainActivity extends AppCompatActivity {
 
                 Alamat alamat = new Alamat(namaAlamat,detailAlamat,kota);
                 alamats.add(alamat);
+
             }
+
+            person = new Person(nama,age,gender, alamats);
+
+            tv1.setText("Nama   : "+person.getNamePerson());
+            tv2.setText("Umur   : "+String.valueOf(person.getAgePerson()));
+            tv3.setText("Gender : "+person.getGenderPerson());
 
         }catch (JSONException ex){
             ex.printStackTrace();

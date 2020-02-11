@@ -9,10 +9,11 @@ public class Person {
     private String genderPerson;
     private ArrayList<Alamat> alamats;
 
-    public Person(String namePerson, int agePerson, String genderPerson) {
+    public Person(String namePerson, int agePerson, String genderPerson, ArrayList<Alamat> alamats) {
         this.namePerson = namePerson;
         this.agePerson = agePerson;
         this.genderPerson = genderPerson;
+        this.alamats = alamats;
     }
 
     public String getNamePerson() {
@@ -25,5 +26,9 @@ public class Person {
 
     public String getGenderPerson() {
         return genderPerson;
+    }
+
+    public ArrayList<Alamat> getAlamats() {
+        return alamats;
     }
 }
