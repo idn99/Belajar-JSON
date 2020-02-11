@@ -1,0 +1,19 @@
+{
+  "person": {
+    "name": "Steve Sudirman",
+    "age": 18,
+    "gender": "male",
+    "address": [
+      {
+        "nameAddress": "home",
+        "addressDetail": "Jl. Camp Uchiha No.19",
+        "city": "Konoha"
+      },
+      {
+        "nameAddress": "office",
+        "addressDetail": "Jl. Camp Senju No.19",
+        "city": "Konoha"
+      }
+    ]
+  }
+}
